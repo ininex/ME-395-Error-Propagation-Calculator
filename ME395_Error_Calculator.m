@@ -56,22 +56,23 @@ Var = [Var storeVar.names{1,i}];
 end
 VarNames = Var;
 Eqn = sym(Eqn);
+sizeArray=size(ArrayWithError1);
 switch nargin 
     case 1
-        for i=1:length(ArrayWithError1)
+        for i=1:sizeArray(1)
             s=PropError(Eqn,VarNames,ArrayWithError1(i,1),ArrayWithError1(i,2));
             errorArray(i,1)=double(s{1,1});
             errorArray(i,2)=double(s{1,3});
         end
     case 2
-        for i=1:length(ArrayWithError1)
+        for i=1:sizeArray(1)
             s=PropError(Eqn,VarNames,[ArrayWithError1(i,1) ArrayWithError2(i,1)],...
                 [ArrayWithError1(i,2) ArrayWithError2(i,2)]);
             errorArray(i,1)=double(s{1,1});
             errorArray(i,2)=double(s{1,3});
         end
     case 3
-        for i=1:length(ArrayWithError1)
+        for i=1:sizeArray(1)
             s=PropError(Eqn,VarNames,[ArrayWithError1(i,1) ArrayWithError2(i,1)...
                 ArrayWithError3(i,1)],[ArrayWithError1(i,2) ...
                 ArrayWithError2(i,2) ArrayWithError3(i,2)]);
@@ -79,7 +80,7 @@ switch nargin
             errorArray(i,2)=double(s{1,3});
         end
     case 4
-        for i=1:length(ArrayWithError1)
+        for i=1:sizeArray(1)
             s=PropError(Eqn,VarNames,[ArrayWithError1(i,1) ArrayWithError2(i,1)...
                 ArrayWithError3(i,1) ArrayWithError4(i,1)],...
                 [ArrayWithError1(i,2) ArrayWithError2(i,2) ...
@@ -88,7 +89,7 @@ switch nargin
             errorArray(i,2)=double(s{1,3});
         end
     case 5
-        for i=1:length(ArrayWithError1)
+        for i=1:sizeArray(1)
             s=PropError(Eqn,VarNames,[ArrayWithError1(i,1) ArrayWithError2(i,1)...
                 ArrayWithError3(i,1) ArrayWithError4(i,1)...
                 ArrayWithError5(i,1)],...
